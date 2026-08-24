@@ -8,8 +8,7 @@ public class principal {
 
 	        Item madera = new Recursos("Madera",5);
 	        Item Oro = new Recursos("Oro",2);
-	        Item hacha = new Item("Hacha");
-
+	        /*
 	        jugador.recogerItem(madera);
 	        jugador.recogerItem(Oro);
 	        jugador.recogerItem(hacha);
@@ -18,6 +17,35 @@ public class principal {
 	        jugador.recibirDanio(20);
 	        
 	        jugador.mostrarEstado();
+	        */ // pruebas de item
+	        
+	        /*
+	        jugador.recibirDanio(20);
+	        jugador.gastarEnergia(30);
+	        jugador.perderHambre(15);
+	        jugador.curar(10);
+
+	        jugador.mostrarEstado();
+	        */ // pruebas de estado
+	        
+	   
+
+	        Hacha hacha = new Hacha(100, 10);
+	        Pico pico = new Pico(80, 8);
+
+	        arbol arbol = new arbol(5);
+
+	        jugador.equiparHerramienta(hacha);
+	        
+
+	        jugador.talar(arbol);
+	        jugador.talar(arbol);
+	        jugador.talar(arbol);
+	        jugador.talar(arbol);
+	        jugador.talar(arbol);
+	        jugador.talar(arbol);
+	        jugador.talar(arbol);
+	        
 	        
 	    }
 

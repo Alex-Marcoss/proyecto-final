@@ -1,8 +1,9 @@
 package juego;
 
+
 public class Hacha extends Herramienta {
 
     public Hacha(int durabilidad, int daño) {
-        super("Hacha", durabilidad, daño);
+        super("Hacha", durabilidad, daño, tipoHerramienta.HACHA);
     }
-}
+}	

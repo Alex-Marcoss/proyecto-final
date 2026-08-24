@@ -138,8 +138,8 @@ public class Jugador {
 	        return;
 	    }
 
-	    if (!(herramientaEquipada instanceof Hacha)) {
-	        System.out.println("Necesitas un hacha para talar.");
+	    if (herramientaEquipada.getTipo() != arbol.getHerramientaNecesaria()) {
+	        System.out.println("La herramienta no sirve para talar este objeto.");
 	        return;
 	    }
 
@@ -156,13 +156,42 @@ public class Jugador {
 	    }
 
 	    herramientaEquipada.usar();
-	    gastarEnergia(3);
+	    gastarEnergia(10);
 
 	    System.out.println("Conseguiste madera.");
 	}
 		
 	// ----------------------------- Minar -----------------------------
 	
+	public void minar(roca roca) {
+
+	    if (herramientaEquipada == null) {
+	        System.out.println("No tenes una herramienta equipada.");
+	        return;
+	    }
+
+	    if (herramientaEquipada.getTipo() != roca.getHerramientaNecesaria()) {
+	        System.out.println("La herramienta no sirve para minar.");
+	        return;
+	    }
+
+	    if (energia <= 0) {
+	        System.out.println("No tenes energia.");
+	        return;
+	    }
+
+	    Recursos piedra = roca.minar();
+
+	    if (piedra == null) {
+	        System.out.println("La roca no tiene mas piedra.");
+	        return;
+	    }
+
+	    herramientaEquipada.usar();
+	    gastarEnergia(10);
+
+	    System.out.println("Conseguiste piedra.");
+	}
 	
 	
 	

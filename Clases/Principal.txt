@@ -30,16 +30,16 @@ public class principal {
 	        
 	   
 
+	        
+
 	        Hacha hacha = new Hacha(100, 10);
 	        Pico pico = new Pico(80, 8);
 
 	        arbol arbol = new arbol(5);
-
+	        roca roca = new roca(5);
+	        
 	        jugador.equiparHerramienta(hacha);
-	        
-
 	        jugador.interactuar(arbol);
-	        
 	        
 	    }
 

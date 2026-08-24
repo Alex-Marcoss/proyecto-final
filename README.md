@@ -14,4 +14,4 @@ El desarrollo se realizará utilizando Java como lenguaje de programación y el 
 y estructura del proyecto.
 
 **Enlace a la Wiki del Proyecto (El legado perdido):**
-[Ver la Propuesta Completa del Proyecto aquí](https://github.com/Alex-Marcoss/proyecto-final/wiki/Propuesta-del-Proyecto----El-Legado-Perdido)
+[Ver la Propuesta Completa del Proyecto aquí](https://github.com/Alex-Marcoss/proyecto-final/wiki)

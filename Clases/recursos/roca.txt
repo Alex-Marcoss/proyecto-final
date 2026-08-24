@@ -1,0 +1,30 @@
+package juego;
+
+public class roca extends objetoMundo {
+	 private int piedraDisponible;
+
+	    public roca(int piedraDisponible) {
+	        super("Roca");
+	        this.piedraDisponible = piedraDisponible;
+	    }
+
+	    @Override
+	    public void interactuar(Jugador jugador) {
+	        jugador.minar(this);
+	    }
+
+	    public Recursos minar() {
+
+	        if (piedraDisponible > 0) {
+	        	piedraDisponible--;
+	            return new Recursos("Roca", 1);
+	        }
+
+	        return null;
+	    }
+	    
+	    public tipoHerramienta getHerramientaNecesaria() {
+	        return tipoHerramienta.PICO;
+	    }
+}
+

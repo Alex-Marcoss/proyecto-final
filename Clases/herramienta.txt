@@ -13,12 +13,17 @@ public class Herramienta extends Item {
 		
 	}
 	
-	 public void usar() {
+	 public boolean usar() {
 	        if (durabilidad > 0) {
+	        	
 	            durabilidad--;
 	            System.out.println(nombre + " usada.");
-	        } else {
+	            return true;
+	            
+	        } 
+	        else {
 	            System.out.println(nombre + " está rota.");
+	            return false;
 	        }
 	    }
 	 
@@ -27,6 +32,10 @@ public class Herramienta extends Item {
 	        System.out.println(nombre + " | Durabilidad: " + durabilidad);
 	    }
 	
+	 
+	  public int getDurabilidad() {
+	        return durabilidad;
+	    }
 	  
 	
 	

@@ -4,20 +4,21 @@ public class Herramienta extends Item {
 
 	int durabilidad;
 	int daño;
-	
-	
-	public Herramienta(String nombre, int durabilidad, int daño) {
-		super(nombre);
-		this.durabilidad = durabilidad;
-		this.daño = daño;
+	private tipoHerramienta tipo;
 		
+	
+	public Herramienta(String nombre, int durabilidad, int daño, tipoHerramienta tipo) {
+	    super(nombre);
+	    this.durabilidad = durabilidad;
+	    this.daño = daño;
+	    this.tipo = tipo;
 	}
 	
 	 public boolean usar() {
 	        if (durabilidad > 0) {
 	        	
 	            durabilidad--;
-	            System.out.println(nombre + " usada.");
+	            System.out.println(nombre + " usada/o.");
 	            return true;
 	            
 	        } 
@@ -37,6 +38,9 @@ public class Herramienta extends Item {
 	        return durabilidad;
 	    }
 	  
+	  public tipoHerramienta getTipo() {
+		    return tipo;
+		}
 	
 	
 }

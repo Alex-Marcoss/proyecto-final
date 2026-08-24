@@ -38,13 +38,7 @@ public class principal {
 	        jugador.equiparHerramienta(hacha);
 	        
 
-	        jugador.talar(arbol);
-	        jugador.talar(arbol);
-	        jugador.talar(arbol);
-	        jugador.talar(arbol);
-	        jugador.talar(arbol);
-	        jugador.talar(arbol);
-	        jugador.talar(arbol);
+	        jugador.interactuar(arbol);
 	        
 	        
 	    }

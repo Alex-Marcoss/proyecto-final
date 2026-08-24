@@ -1,0 +1,33 @@
+package juego;
+
+public class Herramienta extends Item {
+
+	int durabilidad;
+	int daño;
+	
+	
+	public Herramienta(String nombre, int durabilidad, int daño) {
+		super(nombre);
+		this.durabilidad = durabilidad;
+		this.daño = daño;
+		
+	}
+	
+	 public void usar() {
+	        if (durabilidad > 0) {
+	            durabilidad--;
+	            System.out.println(nombre + " usada.");
+	        } else {
+	            System.out.println(nombre + " está rota.");
+	        }
+	    }
+	 
+	  // @Override
+	  public void mostrarInfo() {
+	        System.out.println(nombre + " | Durabilidad: " + durabilidad);
+	    }
+	
+	  
+	
+	
+}

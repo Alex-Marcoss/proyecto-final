@@ -1,0 +1,31 @@
+package juego;
+
+public class arbol {
+	
+	int maderaDisponible;
+	
+	public arbol (int maderaDisponible) {  // constructor arbol
+		this.maderaDisponible = maderaDisponible;
+	}
+	
+	public Recursos talar() {
+	    if (maderaDisponible > 0) {
+
+            maderaDisponible--;
+
+            return new Recursos("Madera", 1);
+        }
+
+        return null;
+    }
+	
+	 public int getMaderaDisponible() {
+	        return maderaDisponible;
+	    }
+	
+	
+	
+	
+	
+	
+}

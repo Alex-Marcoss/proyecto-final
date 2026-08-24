@@ -1,0 +1,167 @@
+package juego;
+
+
+public class Jugador {
+
+	String nombre;
+	int vida;
+	int hambre;
+	int energia;
+	private Herramienta herramientaEquipada;
+	
+	inventario inventario;
+	
+	// -------------------------------------
+	
+	public Jugador(String nombre) { // constructor jugador
+		this.nombre = nombre;
+		this.vida = 100 ;
+		this.hambre = 100;
+		this.energia = 100;
+		this.inventario = new inventario();
+	}
+	
+	// -------------------------------------
+	// Recoleccion de items y recursos y funcion de inventario
+	
+	public void recogerItem(Item item) {
+		inventario.agregarItem(item);	
+	}
+	
+	public void MostrarInventario() {
+		inventario.mostrarIventario();	
+	}
+	
+	public void talar(arbol arbol) {
+
+	    if (herramientaEquipada == null) {
+	        System.out.println("No tenes una herramienta equipada.");
+	        return;
+	    }
+
+	    if (!(herramientaEquipada instanceof Hacha)) {
+	        System.out.println("Necesitas un hacha para talar.");
+	        return;
+	    }
+
+	    if (energia <= 0) {
+	        System.out.println("No tenes energia.");
+	        return;
+	    }
+
+	    Recursos madera = arbol.talar();
+
+	    if (madera == null) {
+	        System.out.println("El arbol no tiene mas madera.");
+	        return;
+	    }
+
+	    herramientaEquipada.usar();
+	    gastarEnergia(10);
+
+	    System.out.println("Conseguiste madera.");
+	}
+	
+	
+	// --------------------------------------------
+	// Estados de jugador y supervivencia
+	
+	public void mostrarEstado() {
+	    System.out.println("Vida: " + vida);
+	    System.out.println("Hambre: " + hambre);
+	    System.out.println("Energia: " + energia);
+	}
+	
+	//  ----------------------------- vida -----------------------------
+	
+	public void recibirDanio(int cantidad) {
+		vida = vida - cantidad;
+		if (vida < 0) {
+			vida = 0;
+		}
+		
+	}
+	
+	public void curar(int cantidad) {
+		
+		vida = vida + cantidad;
+		
+		if(vida > 100) {
+			vida = 100;
+		}
+		
+	}
+	
+	// ----------------------------- Energia -----------------------------
+	
+	public void gastarEnergia(int cantidad) {
+		
+		energia = energia - cantidad;
+		
+		if (energia < 0) {
+			energia = 0;
+		}
+		
+	}
+	
+	public void recuperarEnergia(int cantidad) {
+		
+		energia = energia + cantidad;
+		if(energia > 100) {
+			energia = 100;
+		}
+
+	}
+
+	
+	// ----------------------------- Hambre -----------------------------
+	
+	public void perderHambre(int cantidad) {
+		
+		hambre = hambre - cantidad;
+		
+		if (hambre < 0) {
+			hambre = 0;
+		}
+		
+	}
+	
+	public void comer(int cantidad) {
+		
+		hambre = hambre + cantidad;
+		if(hambre > 100) {
+			hambre = 100;
+		}
+
+	}
+	
+	// -----------------------------------------------------------------------
+	
+	// Herramientas y equipacion
+	
+	public void equiparHerramienta(Herramienta herramienta) {
+	    herramientaEquipada = herramienta;
+	}
+
+	public void mostrarHerramienta() {
+
+	    if (herramientaEquipada != null) {
+	        System.out.println("Herramienta equipada: " 
+	                           + herramientaEquipada.getNombre());
+	    } else {
+	        System.out.println("No hay ninguna herramienta equipada.");
+	    }
+	}
+	
+
+	
+	
+	
+	
+}
+
+
+
+
+
+

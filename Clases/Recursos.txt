@@ -1,0 +1,19 @@
+package juego;
+
+
+public class Recursos extends Item{
+
+	int cantidad;
+	
+	public Recursos(String nombre, int cantidad) {
+		super(nombre);
+		this.cantidad = cantidad;
+	}
+	
+	public int getCantidad() {	
+		return cantidad;
+	}
+	
+	
+	
+}

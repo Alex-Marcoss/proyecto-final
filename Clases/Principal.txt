@@ -1,0 +1,26 @@
+package juego;
+
+public class principal {
+	
+	public static void main(String[] args) {
+
+	        Jugador jugador = new Jugador("Facu");
+
+	        Item madera = new Recursos("Madera",5);
+	        Item Oro = new Recursos("Oro",2);
+	        Item hacha = new Item("Hacha");
+
+	        jugador.recogerItem(madera);
+	        jugador.recogerItem(Oro);
+	        jugador.recogerItem(hacha);
+
+	        jugador.MostrarInventario();
+	        jugador.recibirDanio(20);
+	        
+	        jugador.mostrarEstado();
+	        
+	    }
+
+	
+	
+}

@@ -22,7 +22,7 @@ public class Jugador {
 	}
 	
 	// -------------------------------------
-	// Recoleccion de items y recursos y funcion de inventario
+	// Recoleccion de items y mostrar de inventario
 	
 	public void recogerItem(Item item) {
 		inventario.agregarItem(item);	
@@ -31,37 +31,6 @@ public class Jugador {
 	public void MostrarInventario() {
 		inventario.mostrarIventario();	
 	}
-	
-	public void talar(arbol arbol) {
-
-	    if (herramientaEquipada == null) {
-	        System.out.println("No tenes una herramienta equipada.");
-	        return;
-	    }
-
-	    if (!(herramientaEquipada instanceof Hacha)) {
-	        System.out.println("Necesitas un hacha para talar.");
-	        return;
-	    }
-
-	    if (energia <= 0) {
-	        System.out.println("No tenes energia.");
-	        return;
-	    }
-
-	    Recursos madera = arbol.talar();
-
-	    if (madera == null) {
-	        System.out.println("El arbol no tiene mas madera.");
-	        return;
-	    }
-
-	    herramientaEquipada.usar();
-	    gastarEnergia(10);
-
-	    System.out.println("Conseguiste madera.");
-	}
-	
 	
 	// --------------------------------------------
 	// Estados de jugador y supervivencia
@@ -153,7 +122,46 @@ public class Jugador {
 	    }
 	}
 	
+	// -------------------------------------------------------------------------
+	// Interacciones
+	
+	public void interactuar(objetoMundo objeto) {
+	    objeto.interactuar(this);
+	}
 
+	// ----------------------------- Talar -----------------------------
+	
+	public void talar(arbol arbol) {
+
+	    if (herramientaEquipada == null) {
+	        System.out.println("No tenes una herramienta equipada.");
+	        return;
+	    }
+
+	    if (!(herramientaEquipada instanceof Hacha)) {
+	        System.out.println("Necesitas un hacha para talar.");
+	        return;
+	    }
+
+	    if (energia <= 0) {
+	        System.out.println("No tenes energia.");
+	        return;
+	    }
+
+	    Recursos madera = arbol.talar();
+
+	    if (madera == null) {
+	        System.out.println("El arbol no tiene mas madera.");
+	        return;
+	    }
+
+	    herramientaEquipada.usar();
+	    gastarEnergia(3);
+
+	    System.out.println("Conseguiste madera.");
+	}
+		
+	// ----------------------------- Minar -----------------------------
 	
 	
 	
@@ -165,3 +173,4 @@ public class Jugador {
 
 
 
+	

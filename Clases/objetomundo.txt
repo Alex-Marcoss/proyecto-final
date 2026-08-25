@@ -13,6 +13,18 @@ public class objetoMundo {
     }
 
     public void interactuar(Jugador jugador) {
-        System.out.println("No se puede interactuar con " + nombre);
+        System.out.println("No se puede interactuar con este objeto.");
+    }
+
+    public tipoHerramienta getHerramientaNecesaria() {
+        return null;
+    }
+
+    public Recursos recolectarRecurso() {
+        return null;
+    }
+
+    public int getEnergiaNecesaria() {
+        return 0;
     }
 }

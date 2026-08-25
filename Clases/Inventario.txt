@@ -1,11 +1,9 @@
-package juego;
+package Juego;
 
 public class inventario{
 	
 	Item[] items; 
 	int cantidad;
-	int i;
-	int cantRecurso;
 	
 	public inventario() {
 		
@@ -13,33 +11,42 @@ public class inventario{
 		cantidad = 0;
 	}
 	
+	
+	
 	public void agregarItem(Item item) {
-		
-		if(cantidad < items.length) {
-			items[cantidad] = item;	
-			cantidad++;
-		}
+
+	    if (cantidad < items.length) {
+	        items[cantidad] = item;
+	        cantidad++;
+	    }
 	}
 	
-	public void mostrarIventario() {
+	public void mostrarInventario() {
 
-	    for(i = 0; i < cantidad; i++) {
-	        System.out.println(items[i].getNombre());
-	        
-	        if(items[i] instanceof Recursos) {
-
-	            Recursos recurso = (Recursos) items[i];
-
-	            System.out.println(
-	                recurso.getNombre() + ": " + recurso.getCantidad()
-	            );
-
-	        } else {
-
-	            System.out.println(items[i].getNombre());
-
-	        }	
+	    for (int i = 0; i < cantidad; i++) {
+	        items[i].mostrarInfo();
 	    }
-	}	
+	}
+	
+	public void agregarRecurso(Recursos recurso, int cantidad) {
+
+	    for (int i = 0; i < this.cantidad; i++) {
+
+	        if (items[i].getNombre().equals(recurso.getNombre())) {
+	            items[i].agregarCantidad(cantidad);
+	            return;
+	        }
+	    }
+
+	    if (this.cantidad < items.length) {
+	        recurso.agregarCantidad(cantidad);
+	        items[this.cantidad] = recurso;
+	        this.cantidad++;
+	    }
+	}
+	
 	
 }
+	
+
+

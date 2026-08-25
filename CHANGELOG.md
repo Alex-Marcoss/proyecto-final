@@ -1,6 +1,10 @@
 ## [Creación del proyecto] 2026-08-22
 ### Agregados:
+
 - creación de archivo README.md
+- creacion de archivo CHANGELOG.md
+- Creación de WIKI.
+- creación de carpeta (clases) donde vamos guardando cada avance de la parte lógica del juego.
 
 
 ## [Inicio de la programación del proyecto] 2026-08-23

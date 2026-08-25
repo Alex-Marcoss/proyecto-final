@@ -1,48 +1,83 @@
 package juego;
 
 public class principal {
-	
-	public static void main(String[] args) {
 
-	        Jugador jugador = new Jugador("Facu");
+    public static void main(String[] args) {
 
-	        Item madera = new Recursos("Madera",5);
-	        Item Oro = new Recursos("Oro",2);
-	        /*
-	        jugador.recogerItem(madera);
-	        jugador.recogerItem(Oro);
-	        jugador.recogerItem(hacha);
+        // -----------------------------
+        // Crear jugador
+        // -----------------------------
 
-	        jugador.MostrarInventario();
-	        jugador.recibirDanio(20);
-	        
-	        jugador.mostrarEstado();
-	        */ // pruebas de item
-	        
-	        /*
-	        jugador.recibirDanio(20);
-	        jugador.gastarEnergia(30);
-	        jugador.perderHambre(15);
-	        jugador.curar(10);
+        Jugador jugador = new Jugador("Facu");
 
-	        jugador.mostrarEstado();
-	        */ // pruebas de estado
-	        
-	   
 
-	        
+        // -----------------------------
+        // Agregar recursos al inventario
+        // -----------------------------
 
-	        Hacha hacha = new Hacha(100, 10);
-	        Pico pico = new Pico(80, 8);
+        Recursos madera = new Recursos("Madera", 5);
+        Recursos piedra = new Recursos("Piedra", 3);
 
-	        arbol arbol = new arbol(5);
-	        roca roca = new roca(5);
-	        
-	        jugador.equiparHerramienta(hacha);
-	        jugador.interactuar(arbol);
-	        
-	    }
+        jugador.inventario.agregarRecurso(madera, madera.getCantidad());
+        jugador.inventario.agregarRecurso(piedra, piedra.getCantidad());
 
-	
-	
+
+        // -----------------------------
+        // Crear ingredientes
+        // -----------------------------
+
+        Ingrediente ingredienteMadera =
+                new Ingrediente("Madera", 3);
+
+        Ingrediente ingredientePiedra =
+                new Ingrediente("Piedra", 2);
+
+
+        // -----------------------------
+        // Crear array de ingredientes
+        // -----------------------------
+
+        Ingrediente[] ingredientesHacha = {
+            ingredienteMadera,
+            ingredientePiedra
+        };
+
+
+        // -----------------------------
+        // Crear receta
+        // -----------------------------
+
+        Hacha hacha = new Hacha(100, 10);
+
+        Receta recetaHacha =
+                new Receta(hacha, ingredientesHacha);
+
+
+        // -----------------------------
+        // Mostrar inventario
+        // -----------------------------
+
+        jugador.mostrarInventario();
+
+
+        // -----------------------------
+        // Comprobar si puede fabricar
+        // -----------------------------
+
+        if (recetaHacha.puedeCrear(jugador.inventario)) {
+
+            System.out.println("Puede fabricar el hacha.");
+            System.out.println("\n--- FABRICANDO ---");
+
+            jugador.fabricar(recetaHacha);
+
+            jugador.mostrarInventario();
+
+        } else {
+
+            System.out.println("No puede fabricar el hacha.");
+        }
+        
+        
+    }
 }

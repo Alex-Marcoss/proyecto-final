@@ -7,8 +7,13 @@ El desarrollo se realizará utilizando Java como lenguaje de programación y el 
 
 • Tecnologías Utilizadas: Java y el framework LibGDX.
 
-• Cómo Compilar y Ejecutar: Instrucciones básicas para que cualquier persona
-(incluyéndote) pueda clonar el repositorio y correr el juego.
+• Cómo Compilar y Ejecutar: 
+
+- Abrir **Git Bash**
+-  Utilizar este comando: [git clone]([URL](https://github.com/Alex-Marcoss/proyecto-final))
+-  Abrir el IDE y cargar el proyecto (File > import > Existing Grade Proyect)
+-  Buscar la clase **Lwjgl3Laucher.java** y ejecutarla (Run As > java Application)
+-  
 
 • Estado Actual del Proyecto: Configuración inicial
 y estructura del proyecto.

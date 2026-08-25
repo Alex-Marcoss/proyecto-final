@@ -1,5 +1,4 @@
-package juego;
-
+package Juego;
 
 public class Recursos extends Item{
 
@@ -10,9 +9,19 @@ public class Recursos extends Item{
 		this.cantidad = cantidad;
 	}
 	
-	public int getCantidad() {	
-		return cantidad;
-	}
+	public int getCantidad() {
+	        return cantidad;
+	   }
+	
+	@Override
+	 public void agregarCantidad(int cantidad) {
+	        this.cantidad += cantidad;
+	    }
+	
+	@Override
+    public void mostrarInfo() {
+        System.out.println(nombre + ": " + cantidad);
+    }
 	
 	
 	

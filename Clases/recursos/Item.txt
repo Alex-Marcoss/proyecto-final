@@ -1,4 +1,4 @@
-package juego;
+package Juego;
 
 public class Item{
 	
@@ -11,5 +11,15 @@ public class Item{
 	public String getNombre() {
 		return nombre;
 	}
+	
+	public void mostrarInfo() {
+	        System.out.println(nombre);
+	    }
+
+	public void agregarCantidad(int cantidad) {
+        // Por defecto no hace nada, creada para que se pueda utilizar agregar cantidad en inventario
+	}
+
+
 	
 }

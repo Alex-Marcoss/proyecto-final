@@ -28,7 +28,7 @@ public class Jugador {
 		inventario.agregarItem(item);	
 	}
 	
-	public void MostrarInventario() {
+	public void mostrarInventario() {
 		inventario.mostrarInventario();	
 	}
 	
@@ -126,80 +126,78 @@ public class Jugador {
 	// Interacciones
 	
 	public void interactuar(objetoMundo objeto) {
-	    objeto.interactuar(this);
-	}
 
-	// ----------------------------- Talar -----------------------------
-	
-	public void talar(arbol arbol) {
+	    tipoHerramienta herramientaNecesaria = objeto.getHerramientaNecesaria();
 
-	    if (herramientaEquipada == null) {
-	        System.out.println("No tenes una herramienta equipada.");
+	    // Comprobar herramienta
+	    if (herramientaNecesaria != null) {
+
+	        if (herramientaEquipada == null) {
+	            System.out.println("No tenes una herramienta equipada.");
+	            return;
+	        }
+
+	        if (herramientaEquipada.getTipo() != herramientaNecesaria) {
+	            System.out.println("La herramienta no sirve para este objeto.");
+	            return;
+	        }
+	    }
+
+	    // Comprobar energía
+	    if (energia < objeto.getEnergiaNecesaria()) {
+	        System.out.println("No tenes suficiente energia.");
 	        return;
 	    }
 
-	    if (herramientaEquipada.getTipo() != arbol.getHerramientaNecesaria()) {
-	        System.out.println("La herramienta no sirve para talar este objeto.");
+	    // Obtener recurso
+	    Recursos recurso = objeto.recolectarRecurso();
+
+	    if (recurso == null) {
+	        System.out.println("No queda ningun recurso.");
 	        return;
 	    }
 
-	    if (energia <= 0) {
-	        System.out.println("No tenes energia.");
-	        return;
+	    // Gastar herramienta
+	    if (herramientaEquipada != null) {
+	        herramientaEquipada.usar();
 	    }
 
-	    Recursos madera = arbol.talar();
+	    // Gastar energía
+	    gastarEnergia(objeto.getEnergiaNecesaria());
 
-	    if (madera == null) {
-	        System.out.println("El arbol no tiene mas madera.");
-	        return;
-	    }
+	    // Agregar al inventario
+	    inventario.agregarRecurso(recurso, recurso.getCantidad());
 
-	    herramientaEquipada.usar();
-	    gastarEnergia(10);
-
-	    System.out.println("Conseguiste madera.");
-	}
-		
-	// ----------------------------- Minar -----------------------------
-	
-	public void minar(roca roca) {
-
-	    if (herramientaEquipada == null) {
-	        System.out.println("No tenes una herramienta equipada.");
-	        return;
-	    }
-
-	    if (herramientaEquipada.getTipo() != roca.getHerramientaNecesaria()) {
-	        System.out.println("La herramienta no sirve para minar.");
-	        return;
-	    }
-
-	    if (energia <= 0) {
-	        System.out.println("No tenes energia.");
-	        return;
-	    }
-
-	    Recursos piedra = roca.minar();
-
-	    if (piedra == null) {
-	        System.out.println("La roca no tiene mas piedra.");
-	        return;
-	    }
-
-	    herramientaEquipada.usar();
-	    gastarEnergia(10);
-
-	    System.out.println("Conseguiste piedra.");
+	    System.out.println("Conseguiste "
+	            + recurso.getCantidad()
+	            + " de "
+	            + recurso.getNombre()
+	            + ".");
 	}
 	
+	// ---------------------------------------------------------------------------------
+	// Fabricacion
 	
+	public void fabricar(Receta receta) {
+
+	    if (!receta.puedeCrear(inventario)) {
+	        System.out.println("No tenes los recursos necesarios.");
+	        return;
+	    }
+
+	    receta.gastarIngredientes(inventario);
+
+	    inventario.agregarItem(receta.getResultado());
+
+	    System.out.println(
+	        "Fabricaste: " + receta.getResultado().getNombre()
+	    );
+	}
 	
+	// ---------------------------------------------------------------------------------
+
+
 }
 
 
 
-
-
-
-	

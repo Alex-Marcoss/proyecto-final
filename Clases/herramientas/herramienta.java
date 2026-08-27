@@ -7,14 +7,16 @@ public class Herramienta extends Item {
 	private tipoHerramienta tipo;
 		
 	
-	public Herramienta(String nombre, int durabilidad, int daño, tipoHerramienta tipo) {
+	public Herramienta(String nombre, int durabilidad, int daño, tipoHerramienta tipo) { // constructor
 	    super(nombre);
 	    this.durabilidad = durabilidad;
 	    this.daño = daño;
 	    this.tipo = tipo;
 	}
-	
-	 public boolean usar() {
+
+    // -----------------------------------------------------------------------------------------------
+    
+	 public boolean usar() { // funcion para usar las herramientas
 	        if (durabilidad > 0) {
 	        	
 	            durabilidad--;
@@ -27,19 +29,24 @@ public class Herramienta extends Item {
 	            return false;
 	        }
 	    }
-	 
+
+     // -----------------------------------------------------------------------------------------------
+    
 	  // @Override
 	  public void mostrarInfo() {
 	        System.out.println(nombre + " | Durabilidad: " + durabilidad);
 	    }
 	
-	 
+	  // -----------------------------------------------------------------------------------------------
+    
 	  public int getDurabilidad() {
-	        return durabilidad;
+	        return durabilidad; // obtener durabilidad
 	    }
-	  
+    
+	  // -----------------------------------------------------------------------------------------------
+    
 	  public tipoHerramienta getTipo() {
-		    return tipo;
+		    return tipo; // obtener tipo de herramienta
 		}
 	
 	

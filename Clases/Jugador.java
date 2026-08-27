@@ -195,7 +195,26 @@ public class Jugador {
 	}
 	
 	// ---------------------------------------------------------------------------------
+    //Construir
 
+    public void construir(Construccion construccion) {
+
+    if (!construccion.puedeConstruir(inventario)) {
+
+        System.out.println(
+            "No tenes los materiales necesarios."
+        );
+
+        return;
+    }
+
+    construccion.gastarMateriales(inventario);
+
+    System.out.println(
+        "Construiste: " +
+        construccion.getNombre()
+    );
+}
 
 }
 

@@ -3,19 +3,23 @@ package juego;
 public class roca extends objetoMundo {
 
     private int piedraDisponible;
-
-    public roca(int piedraDisponible) {
+    
+    public roca(int piedraDisponible) { // constructor
         super("Roca");
         this.piedraDisponible = piedraDisponible;
     }
 
+    // ----------------------------------------------------------------
+    
     @Override
     public tipoHerramienta getHerramientaNecesaria() {
-        return tipoHerramienta.PICO;
+        return tipoHerramienta.PICO; // Roca necesita el tipo de herramienta PICO
     }
 
+    // ----------------------------------------------------------------
+    
     @Override
-    public Recursos recolectarRecurso() {
+    public Recursos recolectarRecurso() { // Funcion que extrae la piedra
 
         if (piedraDisponible <= 0) {
             return null;
@@ -28,8 +32,10 @@ public class roca extends objetoMundo {
         return new Recursos("Piedra", cantidad);
     }
 
+    // ----------------------------------------------------------------
+    
     @Override
     public int getEnergiaNecesaria() {
-        return 3;
+        return 5; // Energia necesaria para minar la roca 
     }
 }

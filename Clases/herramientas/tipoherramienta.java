@@ -1,7 +1,7 @@
 package juego;
 
 
-public enum tipoHerramienta {
+public enum tipoHerramienta { // creacion de tipos de herramienta
     HACHA,
     PICO,
     PALA

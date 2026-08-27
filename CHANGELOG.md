@@ -36,4 +36,5 @@
 - Implementación de sistemas como combate y ciclo de día y noche.
 - Creacion logica de construccion con funciones como validar recursos, gastar recursos y construir.
 - Se comentaron casi todas las clases para entender mejor el código y que sea mas legible para otro.
+  
   Aclaración: Todas las implementaciones mencionadas anteriormente son lógicas, la parte grafica con libGDX todavia no fue implementada.

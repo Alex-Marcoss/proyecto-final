@@ -28,3 +28,12 @@
 - Implementación de acciones como fabricar, validar la fabricación y descontar objetos posterior a fabricar.
 - Se unifico las interacciones para simplificar las funciones de minar() talar() recolectar() en interactuar() y optimizar el código.
 - En la clase inventario se implementaron funciones de consultar y gastar recursos.
+
+## [Nuevos avances y mejoras] 2026-08-27
+### Agregados:
+
+- Creación de nuevas clases como enemigos, lobo, araña, y generador de enemigos.
+- Implementación de sistemas como combate y ciclo de día y noche.
+- Creacion logica de construccion con funciones como validar recursos, gastar recursos y construir.
+- Se comentaron casi todas las clases para entender mejor el código y que sea mas legible para otro.
+  Aclaración: Todas las implementaciones mencionadas anteriormente son lógicas, la parte grafica con libGDX todavia no fue implementada.
